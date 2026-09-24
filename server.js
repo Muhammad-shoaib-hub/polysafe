@@ -79,6 +79,10 @@ function findInteraction(drugA, drugB) {
   return null;
 }
 
-app.listen(PORT, () => {
-  console.log(`PolySafe running at http://localhost:${PORT}`);
-});
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`PolySafe running at http://localhost:${PORT}`);
+  });
+}
+
+module.exports = app;
