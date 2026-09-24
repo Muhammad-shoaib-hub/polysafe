@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feedback — PolySafe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a href="index.html" class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" width="30" height="30"><path d="M24 3 L43 10 V21 C43 33.5 35 42.5 24 45.5 C13 42.5 5 33.5 5 21 V10 Z" fill="var(--logo-blue)" stroke="var(--logo-blue-dark)" stroke-width="1.5"/><g transform="translate(24 23) rotate(-40)"><rect x="-13" y="-5.5" width="26" height="11" rx="5.5" fill="#fff"/><rect x="-13" y="-5.5" width="13" height="11" rx="5.5" fill="var(--logo-blue-dark)"/><line x1="0" y1="-5.5" x2="0" y2="5.5" stroke="var(--logo-blue)" stroke-width="1"/></g></svg>
+      </span>
+      <span class="wordmark">PolySafe</span>
+    </a>
+    <nav class="main-nav" aria-label="Main">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="features.html" class="nav-link">Features</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="resources.html" class="nav-link">Resources</a>
+      <a href="favorites.html" class="nav-link">Favorites</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="feedback.html" class="nav-link nav-active">Feedback</a>
+    </nav>
+    <button type="button" class="btn-signup" id="signup-btn">Login / Sign Up</button>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero wrap">
+    <h1>Tell us what you think</h1>
+    <p class="page-hero-sub">Found an error in an interaction, or have an idea to make PolySafe better? This goes straight to the two of us.</p>
+  </section>
+
+  <section class="content-block wrap">
+    <form id="feedback-form" class="custom-form">
+      <div class="field">
+        <label for="fb-name">Your name (optional)</label>
+        <input type="text" id="fb-name" placeholder="e.g. Alex">
+      </div>
+      <div class="field">
+        <label for="fb-type">What's this feedback about?</label>
+        <select id="fb-type">
+          <option value="Dataset accuracy">Dataset accuracy — something looks wrong</option>
+          <option value="Missing interaction">A missing interaction I'd expect to see</option>
+          <option value="Design / usability">Design or usability</option>
+          <option value="Bug report">Something's broken</option>
+          <option value="General feedback" selected>General feedback</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="fb-rating">How would you rate PolySafe so far?</label>
+        <div class="star-rating" id="star-rating">
+          <button type="button" class="star-btn" data-value="1">☆</button>
+          <button type="button" class="star-btn" data-value="2">☆</button>
+          <button type="button" class="star-btn" data-value="3">☆</button>
+          <button type="button" class="star-btn" data-value="4">☆</button>
+          <button type="button" class="star-btn" data-value="5">☆</button>
+        </div>
+        <input type="hidden" id="fb-rating-value" value="0">
+      </div>
+      <div class="field">
+        <label for="fb-message">Your feedback</label>
+        <textarea id="fb-message" rows="5" placeholder="Tell us what worked, what didn't, or what you'd like to see." required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary custom-submit">💬 Open in my email app</button>
+    </form>
+    <p class="content-block-note">This opens your own email app pre-filled — PolySafe doesn't have a server-side mailbox yet, so nothing is sent silently in the background.</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <p>PolySafe — a student project concept. For education and demonstration, not clinical use.</p>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="about.html">About</a>
+      <a href="resources.html">Resources</a>
+      <a href="favorites.html">Favorites</a>
+      <a href="contact.html">Contact</a>
+      <a href="feedback.html">Feedback</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+<script>
+  const starButtons = document.querySelectorAll(".star-btn");
+  const ratingInput = document.getElementById("fb-rating-value");
+  starButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const value = parseInt(btn.dataset.value, 10);
+      ratingInput.value = value;
+      starButtons.forEach(b => {
+        b.textContent = parseInt(b.dataset.value, 10) <= value ? "★" : "☆";
+        b.classList.toggle("is-filled", parseInt(b.dataset.value, 10) <= value);
+      });
+    });
+  });
+
+  document.getElementById("feedback-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const name = document.getElementById("fb-name").value.trim() || "Anonymous";
+    const type = document.getElementById("fb-type").value;
+    const rating = ratingInput.value || "Not rated";
+    const message = document.getElementById("fb-message").value.trim();
+    const to = "mjanuop@gmail.com,mazarsaad031255@gmail.com";
+    const subject = `PolySafe feedback: ${type}`;
+    const body = `From: ${name}\nType: ${type}\nRating: ${rating}/5\n\n${message}`;
+    window.location.href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+</script>
+</body>
+</html>

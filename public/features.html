@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Features — PolySafe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a href="index.html" class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" width="30" height="30"><path d="M24 3 L43 10 V21 C43 33.5 35 42.5 24 45.5 C13 42.5 5 33.5 5 21 V10 Z" fill="var(--logo-blue)" stroke="var(--logo-blue-dark)" stroke-width="1.5"/><g transform="translate(24 23) rotate(-40)"><rect x="-13" y="-5.5" width="26" height="11" rx="5.5" fill="#fff"/><rect x="-13" y="-5.5" width="13" height="11" rx="5.5" fill="var(--logo-blue-dark)"/><line x1="0" y1="-5.5" x2="0" y2="5.5" stroke="var(--logo-blue)" stroke-width="1"/></g></svg>
+      </span>
+      <span class="wordmark">PolySafe</span>
+    </a>
+    <nav class="main-nav" aria-label="Main">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="features.html" class="nav-link nav-active">Features</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="resources.html" class="nav-link">Resources</a>
+      <a href="favorites.html" class="nav-link">Favorites</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="feedback.html" class="nav-link">Feedback</a>
+    </nav>
+    <button type="button" class="btn-signup" id="signup-btn">Login / Sign Up</button>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero wrap">
+    <h1>What PolySafe actually does</h1>
+    <p class="page-hero-sub">Four things, done deliberately, rather than one big database done broadly.</p>
+  </section>
+
+  <section class="content-block wrap">
+    <div class="feature-detail">
+      <div class="feature-detail-number">1</div>
+      <div>
+        <h2>Detect across more than just drug pairs</h2>
+        <p>Most checkers only ask "does Drug A interact with Drug B?" PolySafe checks that too, but it also detects three other kinds of clinically relevant interaction:</p>
+        <ul class="feature-list">
+          <li><strong>Drug–Disease</strong> — e.g. propranolol prescribed to a patient with asthma or bradycardia.</li>
+          <li><strong>Drug–Food/Drink</strong> — e.g. grapefruit juice raising exposure to nifedipine, midazolam or cyclosporine; cation-rich foods blocking fluoroquinolone absorption.</li>
+          <li><strong>Drug–Laboratory Test</strong> — e.g. ceftriaxone causing a false-positive copper-reduction urine glucose test.</li>
+        </ul>
+        <p>You add anything relevant to the patient's list — medicines, a condition, a food, a lab test — and PolySafe checks every possible pair between them.</p>
+      </div>
+    </div>
+
+    <div class="feature-detail">
+      <div class="feature-detail-number">2</div>
+      <div>
+        <h2>Prioritize with a real severity scale</h2>
+        <p>Every finding is classified on a single, consistent scale, so severity means the same thing everywhere in the app:</p>
+        <div class="severity-grid">
+          <div class="severity-card sev-card-critical">🚫 <strong>Contraindicated (C1)</strong><span>Should not be used together per authoritative labeling, absent a specific clinical override.</span></div>
+          <div class="severity-card sev-card-major">🔴 <strong>Major (C2)</strong><span>Clinically important — commonly needs avoidance, dose adjustment, or close monitoring.</span></div>
+          <div class="severity-card sev-card-moderate">🟠 <strong>Moderate (C3)</strong><span>Meaningful interaction where monitoring or adjustment may be appropriate.</span></div>
+          <div class="severity-card sev-card-minor">🟡 <strong>Mild (C4)</strong><span>Limited clinical significance, or an analytical/lab artifact rather than a patient-harm risk.</span></div>
+        </div>
+        <p class="feature-note">Important distinction PolySafe keeps: <strong>severity is not the same as "avoid."</strong> Grapefruit juice + cyclosporine, for example, is Major (C2) with a clear "avoid" instruction — not automatically Contraindicated (C1). Reserving C1 for genuine, labeling-backed contraindications keeps the top tier meaningful.</p>
+      </div>
+    </div>
+
+    <div class="feature-detail">
+      <div class="feature-detail-number">3</div>
+      <div>
+        <h2>Understand with the "Act Like a Pharmacist" breakdown</h2>
+        <p>Selecting any finding opens a structured, consistent breakdown: contraindication status, risk, mechanism, clinical effect, monitoring, pharmacist considerations, and the evidence behind it. Two of the most time-critical sections — <strong>Monitoring</strong> and <strong>Pharmacist Considerations</strong> — also have their own quick-access buttons right on the result card, so you can jump straight to "what do I watch for" or "what do I actually do" without opening and scrolling the full panel.</p>
+      </div>
+    </div>
+
+    <div class="feature-detail">
+      <div class="feature-detail-number">4</div>
+      <div>
+        <h2>Show its work — including what it doesn't know</h2>
+        <p>If two items on the list have no curated record between them, PolySafe says so directly with a clear "no known interaction found" card, instead of silently doing nothing. That's a deliberate choice: no record means <em>not yet reviewed</em>, never <em>confirmed safe</em>.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <p>PolySafe — a student project concept. For education and demonstration, not clinical use.</p>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="about.html">About</a>
+      <a href="resources.html">Resources</a>
+      <a href="favorites.html">Favorites</a>
+      <a href="contact.html">Contact</a>
+      <a href="feedback.html">Feedback</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+</body>
+</html>

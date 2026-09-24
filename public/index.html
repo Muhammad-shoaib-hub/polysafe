@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PolySafe — Detect. Prioritize. Understand.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a href="index.html" class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" width="30" height="30"><path d="M24 3 L43 10 V21 C43 33.5 35 42.5 24 45.5 C13 42.5 5 33.5 5 21 V10 Z" fill="var(--logo-blue)" stroke="var(--logo-blue-dark)" stroke-width="1.5"/><g transform="translate(24 23) rotate(-40)"><rect x="-13" y="-5.5" width="26" height="11" rx="5.5" fill="#fff"/><rect x="-13" y="-5.5" width="13" height="11" rx="5.5" fill="var(--logo-blue-dark)"/><line x1="0" y1="-5.5" x2="0" y2="5.5" stroke="var(--logo-blue)" stroke-width="1"/></g></svg>
+      </span>
+      <span class="wordmark">PolySafe</span>
+    </a>
+    <nav class="main-nav" aria-label="Main">
+      <a href="index.html" class="nav-link nav-active">Home</a>
+      <a href="features.html" class="nav-link">Features</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="resources.html" class="nav-link">Resources</a>
+      <a href="favorites.html" class="nav-link">Favorites</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="feedback.html" class="nav-link">Feedback</a>
+    </nav>
+    <button type="button" class="btn-signup" id="signup-btn">Login / Sign Up</button>
+  </div>
+</header>
+
+<main>
+
+  <div class="hero-band">
+  <section class="hero wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="hero-badge">Polypharmacy decision support</span>
+        <h1 class="hero-title">
+          <span class="hero-title-dark">Detect. Prioritize.</span><br>
+          <span class="hero-title-accent">Understand.</span>
+        </h1>
+        <p class="hero-sub">
+          PolySafe helps you identify clinically important interactions — between medicines,
+          conditions, food, drinks and even lab tests — and gives you pharmacist-oriented
+          guidance, so you can see what actually deserves attention first.
+        </p>
+      </div>
+
+      <div class="hero-art">
+        <img src="images/hero-pharmacy.jpg" alt="A pharmacist reviewing patient notes on a clipboard, with Clinical Pharmacy and Pharmacotherapy reference books on the desk" class="hero-photo">
+        <span class="hero-photo-caption">Right drug. Right patient. Safer together.</span>
+      </div>
+    </div>
+  </section>
+  </div>
+
+  <section class="checker-card wrap" aria-label="Check interactions">
+    <div class="checker-panel">
+      <h2 class="checker-title">Check interactions</h2>
+      <p class="checker-sub">Add anything on this patient's list — medicines, a condition, a food/drink, or a lab test — then analyze.</p>
+
+      <label for="med-input" class="input-label">Items on the list</label>
+      <div class="input-row">
+        <input
+          type="text"
+          id="med-input"
+          list="med-suggestions"
+          placeholder="Search medicine, condition, food/drink, or lab test…"
+          autocomplete="off"
+        >
+        <datalist id="med-suggestions"></datalist>
+        <button type="button" id="add-med-btn" class="btn btn-secondary">+ Add</button>
+      </div>
+      <div class="med-chips" id="med-chips" aria-live="polite"></div>
+      <button type="button" id="analyze-btn" class="btn btn-primary" disabled>Add at least 2 items</button>
+    </div>
+  </section>
+
+  <section class="results-section wrap" id="results-section" hidden>
+    <div class="results-summary" id="results-summary"></div>
+
+    <ul class="priority-list" id="priority-list"></ul>
+
+    <button type="button" class="other-toggle" id="other-toggle" aria-expanded="false">
+      <span class="chevron">▸</span> Other findings <span class="other-count" id="other-count">0</span>
+    </button>
+    <ul class="other-list" id="other-list" hidden></ul>
+
+    <div class="clear-section" id="clear-section"></div>
+  </section>
+
+  <section class="empty-state wrap" id="empty-state">
+    <p>Add items above, then select <strong>Analyze</strong> to see prioritized findings here.</p>
+  </section>
+
+  <section class="feature-strip wrap">
+    <div class="feature-item feat-1">
+      <span class="feature-icon-badge">🎯</span>
+      <h3>Polypharmacy focused</h3>
+      <p>Built for real patients on several medicines at once, not one drug pair at a time.</p>
+    </div>
+    <div class="feature-item feat-2">
+      <span class="feature-icon-badge">🧭</span>
+      <h3>Prioritizes what matters</h3>
+      <p>Contraindicated and Major findings surface first — everything else stays out of the way.</p>
+    </div>
+    <div class="feature-item feat-3">
+      <span class="feature-icon-badge">🩺</span>
+      <h3>Pharmacist-oriented</h3>
+      <p>Every finding opens into risk, mechanism, monitoring and pharmacist considerations.</p>
+    </div>
+    <div class="feature-item feat-4">
+      <span class="feature-icon-badge">🗂️</span>
+      <h3>Beyond drug-drug</h3>
+      <p>Also checks drug–disease, drug–food/drink, and drug–lab test interactions.</p>
+    </div>
+    <div class="feature-item feat-5">
+      <span class="feature-icon-badge">📚</span>
+      <h3>Curated, not guessed</h3>
+      <p>Every record is traceable to labeling or literature — nothing is invented on the fly.</p>
+    </div>
+  </section>
+
+  <section class="about wrap">
+    <h2>Why PolySafe, when checkers already exist?</h2>
+    <div class="about-grid">
+      <div>
+        <h3>Most checkers answer</h3>
+        <p>"Does Drug A interact with Drug B?" — leaving you to sort through a flat list of alerts yourself.</p>
+      </div>
+      <div>
+        <h3>PolySafe is built around</h3>
+        <p>"Which interaction in this list matters most, why does it matter, and what should a pharmacist consider?"</p>
+      </div>
+    </div>
+    <p class="about-disclaimer">
+      PolySafe is a prototype built on a deliberately limited, curated dataset — it is not a
+      replacement for DrugBank, Micromedex, Medscape or a pharmacist's professional judgment.
+      A pair with no record shown means "not yet reviewed," never "confirmed safe."
+    </p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <p>PolySafe — a student project concept. For education and demonstration, not clinical use.</p>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="about.html">About</a>
+      <a href="resources.html">Resources</a>
+      <a href="favorites.html">Favorites</a>
+      <a href="contact.html">Contact</a>
+      <a href="feedback.html">Feedback</a>
+    </nav>
+  </div>
+</footer>
+
+<!-- Standalone Monitoring / Considerations popup (independent of the big panel) -->
+<div class="mini-modal-backdrop" id="mini-modal-backdrop"></div>
+<div class="mini-modal" id="mini-modal" role="dialog" aria-hidden="true" aria-label="Quick view">
+  <button type="button" class="mini-modal-close" id="mini-modal-close" aria-label="Close">×</button>
+  <div id="mini-modal-body"></div>
+</div>
+
+<!-- Act Like a Pharmacist slide-over panel -->
+<div class="panel-backdrop" id="panel-backdrop"></div>
+<aside class="pharmacist-panel" id="pharmacist-panel" aria-hidden="true" aria-label="Act Like a Pharmacist">
+  <button type="button" class="panel-close" id="panel-close" aria-label="Close">×</button>
+  <div class="panel-eyebrow">Act Like a Pharmacist</div>
+  <div id="panel-body"></div>
+</aside>
+
+<script src="nav.js"></script>
+<script src="shared.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

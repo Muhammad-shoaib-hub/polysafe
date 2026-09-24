@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resources — PolySafe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a href="index.html" class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" width="30" height="30"><path d="M24 3 L43 10 V21 C43 33.5 35 42.5 24 45.5 C13 42.5 5 33.5 5 21 V10 Z" fill="var(--logo-blue)" stroke="var(--logo-blue-dark)" stroke-width="1.5"/><g transform="translate(24 23) rotate(-40)"><rect x="-13" y="-5.5" width="26" height="11" rx="5.5" fill="#fff"/><rect x="-13" y="-5.5" width="13" height="11" rx="5.5" fill="var(--logo-blue-dark)"/><line x1="0" y1="-5.5" x2="0" y2="5.5" stroke="var(--logo-blue)" stroke-width="1"/></g></svg>
+      </span>
+      <span class="wordmark">PolySafe</span>
+    </a>
+    <nav class="main-nav" aria-label="Main">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="features.html" class="nav-link">Features</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="resources.html" class="nav-link nav-active">Resources</a>
+      <a href="favorites.html" class="nav-link">Favorites</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="feedback.html" class="nav-link">Feedback</a>
+    </nav>
+    <button type="button" class="btn-signup" id="signup-btn">Login / Sign Up</button>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero wrap">
+    <h1>Evidence & methodology</h1>
+    <p class="page-hero-sub">How PolySafe's dataset is built, where it comes from, and what it doesn't cover yet.</p>
+  </section>
+
+  <section class="content-block wrap">
+    <h2>Primary evidence sources</h2>
+    <ul class="resource-list">
+      <li>
+        <h3>Product labeling</h3>
+        <p>Current prescribing information / package labeling is the primary source for contraindications, warnings, and documented pharmacokinetic interactions (e.g. CYP3A4/CYP2C9 inhibition, P-glycoprotein effects).</p>
+      </li>
+      <li>
+        <h3>RxNorm (NLM)</h3>
+        <p>Used as the reference point for standardized, normalized drug naming — so "the same drug" is represented consistently even when different brand or generic names are used.</p>
+      </li>
+      <li>
+        <h3>DailyMed (NLM)</h3>
+        <p>Current FDA-submitted labeling, used to support interaction, contraindication, warning and clinical-pharmacology claims.</p>
+      </li>
+      <li>
+        <h3>Published clinical literature and case reports</h3>
+        <p>Used to supplement labeling where clinically important — particularly for quantifying real-world effect sizes (e.g. specific INR changes, AUC/Cmax increases) rather than relying on mechanism alone.</p>
+      </li>
+    </ul>
+    <p class="about-disclaimer">
+      PolySafe does not copy proprietary interaction content from commercial databases like
+      DrugBank, Micromedex or Lexicomp. Content is drafted from public labeling and literature,
+      and licensing terms are checked before any future redistribution.
+    </p>
+  </section>
+
+  <section class="content-block wrap">
+    <h2>How severity is assigned</h2>
+    <p>Each record gets one of four severity levels — 🚫 Contraindicated (C1), 🔴 Major (C2), 🟠 Moderate (C3), or 🟡 Mild (C4) — based on what the labeling or literature actually supports, not on how alarming the mechanism sounds. Two rules guide this specifically:</p>
+    <ul class="feature-list">
+      <li><strong>C1 is reserved for genuine contraindications.</strong> A drug that should generally be avoided (like grapefruit juice with cyclosporine) is still C2/Major with an "avoid" action — not automatically C1 — unless labeling states an outright contraindication.</li>
+      <li><strong>Route and formulation matter.</strong> The same drug can carry different risk by route — e.g. IV ceftriaxone with IV calcium-containing solutions is a real neonatal contraindication, while oral calcium has no established interaction with ceftriaxone at all. Collapsing these into one record would create false alarms.</li>
+    </ul>
+  </section>
+
+  <section class="content-block wrap">
+    <h2>Categories currently covered</h2>
+    <div class="kind-grid">
+      <div class="kind-card"><strong>Drug–Drug</strong><span>The core dataset — anticoagulants, antiplatelets, macrolides/statins, and more.</span></div>
+      <div class="kind-card"><strong>Drug–Disease</strong><span>e.g. beta-blockers in asthma or bradycardia.</span></div>
+      <div class="kind-card"><strong>Drug–Food/Drink</strong><span>e.g. grapefruit juice, cation-rich foods and fluoroquinolone absorption.</span></div>
+      <div class="kind-card"><strong>Drug–Laboratory Test</strong><span>e.g. analytical interference causing false-positive results.</span></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <p>PolySafe — a student project concept. For education and demonstration, not clinical use.</p>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="about.html">About</a>
+      <a href="resources.html">Resources</a>
+      <a href="favorites.html">Favorites</a>
+      <a href="contact.html">Contact</a>
+      <a href="feedback.html">Feedback</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+</body>
+</html>

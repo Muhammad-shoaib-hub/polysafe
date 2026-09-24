@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — PolySafe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a href="index.html" class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" width="30" height="30"><path d="M24 3 L43 10 V21 C43 33.5 35 42.5 24 45.5 C13 42.5 5 33.5 5 21 V10 Z" fill="var(--logo-blue)" stroke="var(--logo-blue-dark)" stroke-width="1.5"/><g transform="translate(24 23) rotate(-40)"><rect x="-13" y="-5.5" width="26" height="11" rx="5.5" fill="#fff"/><rect x="-13" y="-5.5" width="13" height="11" rx="5.5" fill="var(--logo-blue-dark)"/><line x1="0" y1="-5.5" x2="0" y2="5.5" stroke="var(--logo-blue)" stroke-width="1"/></g></svg>
+      </span>
+      <span class="wordmark">PolySafe</span>
+    </a>
+    <nav class="main-nav" aria-label="Main">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="features.html" class="nav-link">Features</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="resources.html" class="nav-link">Resources</a>
+      <a href="favorites.html" class="nav-link">Favorites</a>
+      <a href="contact.html" class="nav-link nav-active">Contact</a>
+      <a href="feedback.html" class="nav-link">Feedback</a>
+    </nav>
+    <button type="button" class="btn-signup" id="signup-btn">Login / Sign Up</button>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero wrap">
+    <h1>Get in touch</h1>
+    <p class="page-hero-sub">Questions, corrections to the dataset, or anything else — reach us directly.</p>
+  </section>
+
+  <section class="content-block wrap">
+    <h2>Direct email</h2>
+    <div class="contact-emails">
+      <a href="mailto:mjanuop@gmail.com" class="contact-email-card">
+        <span class="contact-email-icon">✉️</span>
+        <span>
+          <strong>mjanuop@gmail.com</strong>
+          <span class="contact-email-sub">Project contact</span>
+        </span>
+      </a>
+      <a href="mailto:mazarsaad031255@gmail.com" class="contact-email-card">
+        <span class="contact-email-icon">✉️</span>
+        <span>
+          <strong>mazarsaad031255@gmail.com</strong>
+          <span class="contact-email-sub">Project contact</span>
+        </span>
+      </a>
+    </div>
+  </section>
+
+  <section class="content-block wrap">
+    <h2>Or send a message here</h2>
+    <p>This opens your own email app with everything pre-filled — PolySafe doesn't have a server-side mailbox yet, so nothing is sent silently in the background.</p>
+    <form id="contact-form" class="custom-form">
+      <div class="field">
+        <label for="contact-name">Your name</label>
+        <input type="text" id="contact-name" placeholder="e.g. Alex" required>
+      </div>
+      <div class="field">
+        <label for="contact-subject">Subject</label>
+        <input type="text" id="contact-subject" placeholder="What's this about?" required>
+      </div>
+      <div class="field">
+        <label for="contact-message">Message</label>
+        <textarea id="contact-message" rows="5" placeholder="Write your message here…" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary custom-submit">✉️ Open in my email app</button>
+    </form>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <p>PolySafe — a student project concept. For education and demonstration, not clinical use.</p>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="about.html">About</a>
+      <a href="resources.html">Resources</a>
+      <a href="favorites.html">Favorites</a>
+      <a href="contact.html">Contact</a>
+      <a href="feedback.html">Feedback</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+<script>
+  document.getElementById("contact-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const name = document.getElementById("contact-name").value.trim();
+    const subject = document.getElementById("contact-subject").value.trim();
+    const message = document.getElementById("contact-message").value.trim();
+    const to = "mjanuop@gmail.com,mazarsaad031255@gmail.com";
+    const body = `From: ${name}\n\n${message}`;
+    window.location.href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+</script>
+</body>
+</html>
